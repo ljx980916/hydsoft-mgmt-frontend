@@ -45,7 +45,7 @@ module.exports = defineConfig({
     port: 8002,
     proxy: {
         '/oms': {
-            target: 'https://test.mgmt.hydsoft.net:9005',
+            target: 'https://10.3.3.160:9006',
             //target: 'https://mgmt.hydsoft.net:9005/',
             ws: false,
             changeOrigin: true,
