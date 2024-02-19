@@ -180,46 +180,46 @@ const initCalendar = () => {
 };
 initCalendar();
 // 获取日历事件
-const getList = () => {
-  workingCalendar({ month: dateNow.value }).then(res => {
-    if (res.code == "200") {
-      calenderEvents.value = res.data;
-      calenderEvents.value.forEach(item => {
-        if (item.caleDate.split("-")[1][0] == 0) {
-          let date = `${item.caleDate.split("-")[0]}/${item.caleDate.split("-")[1][1]}/${item.caleDate.split("-")[2]}`;
-          item.caleDate = date;
-        } else {
-          let date = `${item.caleDate.split("-")[0]}/${item.caleDate.split("-")[1]}/${item.caleDate.split("-")[2]}`;
-          item.caleDate = date;
-        }
-        dates.value.forEach(ele => {
-          if (item.caleDate === ele.dateNowVal) {
-            ele.eventList = item.item;
-            ele.caleType = item.caleType;
-            ele.eventList.forEach(jtem => {
-              if (jtem.dept === "FG4-HR") {
-                jtem.borderColor = "#FFE4BA"; // 橘
-                jtem.bgColor = "#FFF7E8";
-                jtem.color = "#FF7D00";
-              }
-              if (jtem.dept === "FG4-BMD") {
-                jtem.bgColor = "#FFECE8"; // 红
-                jtem.borderColor = "#FDCDC5";
-                jtem.color = "#F53F3F";
-              }
-              if (jtem.dept === "FG4-FIN") {
-                jtem.bgColor = "#E8F3FF"; // 蓝
-                jtem.borderColor = "#C3E7FE";
-                jtem.color = "#4080FF";
-              }
-            });
-          }
-        });
-      });
-    }
-  });
-};
-getList();
+// const getList = () => {
+//   workingCalendar({ month: dateNow.value }).then(res => {
+//     if (res.code == "200") {
+//       calenderEvents.value = res.data;
+//       calenderEvents.value.forEach(item => {
+//         if (item.caleDate.split("-")[1][0] == 0) {
+//           let date = `${item.caleDate.split("-")[0]}/${item.caleDate.split("-")[1][1]}/${item.caleDate.split("-")[2]}`;
+//           item.caleDate = date;
+//         } else {
+//           let date = `${item.caleDate.split("-")[0]}/${item.caleDate.split("-")[1]}/${item.caleDate.split("-")[2]}`;
+//           item.caleDate = date;
+//         }
+//         dates.value.forEach(ele => {
+//           if (item.caleDate === ele.dateNowVal) {
+//             ele.eventList = item.item;
+//             ele.caleType = item.caleType;
+//             ele.eventList.forEach(jtem => {
+//               if (jtem.dept === "FG4-HR") {
+//                 jtem.borderColor = "#FFE4BA"; // 橘
+//                 jtem.bgColor = "#FFF7E8";
+//                 jtem.color = "#FF7D00";
+//               }
+//               if (jtem.dept === "FG4-BMD") {
+//                 jtem.bgColor = "#FFECE8"; // 红
+//                 jtem.borderColor = "#FDCDC5";
+//                 jtem.color = "#F53F3F";
+//               }
+//               if (jtem.dept === "FG4-FIN") {
+//                 jtem.bgColor = "#E8F3FF"; // 蓝
+//                 jtem.borderColor = "#C3E7FE";
+//                 jtem.color = "#4080FF";
+//               }
+//             });
+//           }
+//         });
+//       });
+//     }
+//   });
+// };
+// getList();
 </script>
 
 <style lang="scss" scoped>

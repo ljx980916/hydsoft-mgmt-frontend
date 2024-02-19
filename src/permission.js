@@ -2,7 +2,7 @@ import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import router from './router'
 import { LOGIN_TOKEN } from '@/store/mutation-types'
-import { useUserInfoStore,useMenuStore,useTagColumnListStore } from './store/index'
+import { useUserInfoStore,useMenuStore } from './store/index'
 import { Message } from "@arco-design/web-vue";
 import { getURLParams, goLogin } from '@/utils/getToken'
 import { getTokenByCode } from "@/api/login";
@@ -48,9 +48,8 @@ function logoutFn(){
 let result
 async function loginAfterData(){
 const menuStore = useMenuStore()
-const tagColumnListStore = useTagColumnListStore()
     try {
-        let resArr =  await Promise.all([menuStore.menuSideBar(),tagColumnListStore.tagColumnListBar()])
+        let resArr =  await Promise.all([menuStore.menuSideBar()])
         result = Promise.resolve(resArr)
         flatMenu(resArr[0].data.menuList)
     } catch (error) {
@@ -106,7 +105,8 @@ router.beforeEach((to,from,next)=>{
             if (res.code === "000000000000") {
                 let { accessToken,loginInfo } = res.data;
                 saveTokenCookie(accessToken)
-                loginInfo && addSSOEncrypt(isDev?'development':'test',loginInfo)
+                // loginInfo && addSSOEncrypt(isDev?'development':'test',loginInfo)
+                loginInfo && addSSOEncrypt('test',loginInfo)
                 isInCodeFn = false
                 const userStore = useUserInfoStore();
                 let Info = userStore.getUserInfo;

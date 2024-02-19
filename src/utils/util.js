@@ -382,7 +382,7 @@ export function addSSOEncrypt(context,value){
             document.cookie = `dev_ssoSecretKey=${value}; domain=.hydsoft.net; path=/; expires=${SSOExpiresTime}`;
             break;
         case 'test':
-            document.cookie = `test_ssoSecretKey=${value}; domain=.hydsoft.net; path=/; expires=${SSOExpiresTime}`;
+            document.cookie = `test_ssoSecretKey=${value};path=/; expires=${SSOExpiresTime}`;
             break;
         default:
             break;
@@ -392,13 +392,13 @@ export function addSSOEncrypt(context,value){
 export function clearCookie(name) {  
   // 设置cookie的过期时间为过去的时间，从而删除cookie  
   let islocal = location.hostname.startsWith('localhost')
-  islocal?document.cookie = name + '=; domain=localhost; path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;':document.cookie = name + '=; domain=.hydsoft.net; path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;';    
+  islocal?document.cookie = name + '=; domain=localhost; path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;':document.cookie = name + '=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;';    
 }
 
 let expiresTime = new Date(Date.now()+1000*60*60*24*7).toGMTString() //cookie有效时间
 export function saveTokenCookie(value,expires=expiresTime){
     let islocal = location.hostname.startsWith('localhost')
-    islocal?document.cookie = `${LOGIN_TOKEN}=${value}; path=/`:document.cookie = `${LOGIN_TOKEN}=${value}; domain=.hydsoft.net; path=/;expires=${expires}`;
+    islocal?document.cookie = `${LOGIN_TOKEN}=${value}; path=/`:document.cookie = `${LOGIN_TOKEN}=${value};path=/;expires=${expires}`;
 }
 export function getCookie(name) {  
   // 将cookie字符串按分号分割成一个数组  
@@ -425,7 +425,7 @@ export function clearAllCookies() {
       var eqPos = cookie.indexOf("=");  
       var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
       if(isTest){
-          if((name+'').trim().startsWith('test_')) document.cookie = name + "=; domain=.hydsoft.net; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/"; 
+          if((name+'').trim().startsWith('test_')) document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/"; 
       }else {
           if((name+'').trim().startsWith('production_') || (name+'').trim().startsWith('dev_'))document.cookie = name + "=; domain=.hydsoft.net; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/"; 
       } 

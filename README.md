@@ -1,6 +1,6 @@
-# Hydsoft Oms Frontend
+# Hydsoft mgmt Frontend
 
-经营管理系统前端
+管理驾驶舱前端
 
 ## Getting started
 
@@ -15,14 +15,14 @@ Already a pro? Just edit this README.md and make it your own. Want to make it ea
 
 ```
 cd existing_repo
-git remote add origin http://10.3.1.68/rdc/hydsoft-oms-frontend.git
+git remote add origin http://10.3.1.68/rdc/hydsoft-mgmt-frontend.git
 git branch -M main
 git push -uf origin main
 ```
 
 ## Integrate with your tools
 
-- [ ] [Set up project integrations](http://10.3.1.68/rdc/hydsoft-oms-frontend/-/settings/integrations)
+- [ ] [Set up project integrations](http://10.3.1.68/rdc/hydsoft-mgmt-frontend/-/settings/integrations)
 
 ## Collaborate with your team
 

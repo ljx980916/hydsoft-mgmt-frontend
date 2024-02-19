@@ -6,7 +6,7 @@ module.exports = defineConfig({
     config
     .plugin('html')
     .tap(args => {
-        args[0].title = '经营管理系统'
+        args[0].title = '管理驾驶舱'
         return args
     })
   },
@@ -44,13 +44,13 @@ module.exports = defineConfig({
   devServer: {
     port: 8002,
     proxy: {
-        '/oms': {
-            target: 'https://10.3.3.160:9006',
+        '/mgmt': {
+            target: 'http://10.3.3.160:9006',
             //target: 'https://mgmt.hydsoft.net:9005/',
             ws: false,
             changeOrigin: true,
             pathRewrite:{
-              "^/oms": ""
+              "^/mgmt": ""
           }
         }
     }

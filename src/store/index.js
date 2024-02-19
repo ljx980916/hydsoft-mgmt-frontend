@@ -51,7 +51,7 @@ export const useUserInfoStore = defineStore('userInfo',{
                 if(logoutRes.code === '000000000000'){
                     storage.remove(ACCESS_TOKEN)
                     //退出时所需要清除的缓存数据
-                    const logoutCache = [useUserInfoStore,useMenuStore,useBreadListStore,useTagColumnListStore]
+                    const logoutCache = [useUserInfoStore,useMenuStore,useBreadListStore]
                     logoutCache.forEach(fn=>{
                         fn().$reset()
                     })
@@ -70,8 +70,8 @@ export const useBreadListStore = defineStore('breadList',{
     state : ()=>{
         return {
             breadList : [ 
-               { name: '业务体验'},
-               { name: '下钻分析'}
+               { name: '系统设置'},
+               { name: '菜单管理'}
              ]
         }
     },

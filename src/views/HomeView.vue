@@ -3,14 +3,14 @@
     <a-layout-sider breakpoint="lg" :width="innerWidth>1800?240:180" :collapsed="collapsed" class="menu-container" @collapse="onCollapse">
       <!-- logo部分 -->
       <div class="logo">
-        <span v-if="!collapsed">经营管理系统</span>
+        <span v-if="!collapsed">管理驾驶舱</span>
         <span v-else>
           <img src="../../public/huibo.png" width="24" />
         </span>
       </div>
       <!-- 菜单  -->
       <a-menu
-        :default-open-keys="[(breadListStore.breadList.length > 0 && breadListStore.breadList[0].name)?breadListStore.breadList[0].name:'业务体验']"
+        :default-open-keys="[(breadListStore.breadList.length > 0 && breadListStore.breadList[0].name)?breadListStore.breadList[0].name:'系统设置']"
         v-model:selected-keys="selectedKeys"
         show-collapse-button
         :class="['aside-menu-content', { 'aside-menu': !collapsed }]"
@@ -72,14 +72,14 @@
         </div>
         <div>
           <!-- 日历 -->
-          <a-space class="m-r-24">
+          <!-- <a-space class="m-r-24">
             <a-button shape="round" @click="handleCalender">
               <template #icon>
                 <span class="blue"><icon-calendar size="medium" /></span>
               </template>
               {{ dateNow }}
             </a-button>
-          </a-space>
+          </a-space> -->
           <!-- 退出登录部门 -->
           <a-space class="userContent">
             <img src="huibo.png" width="20" />
@@ -533,7 +533,7 @@ const goPage = (params, isBack = false) => {
 
 /**滚动条滚动事件 */
 onMounted(()=>{
-  selectedKeys.value = [(breadListStore.breadList.length > 0 && breadListStore.breadList[1].name)?breadListStore.breadList[1].name:'下钻分析'];
+  selectedKeys.value = [(breadListStore.breadList.length > 0 && breadListStore.breadList[1].name)?breadListStore.breadList[1].name:'菜单管理'];
   let layoutMainDom = document.querySelector('#a-layout-main')
   let prevScrollPos = layoutMainDom.pageYOffset || layoutMainDom.scrollTop
   layoutMainDom.addEventListener('scroll',e=>{

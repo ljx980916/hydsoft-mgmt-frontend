@@ -26,6 +26,11 @@ const routes = [
         path : '/roleManage',
         name : 'roleManage',
         component : ()=>import(/* webpackChunkName: "roleManage" */'../views/system/roleManage.vue')
+      },
+      {
+        path : '/taskManage',
+        name : 'taskManage',
+        component : ()=>import(/* webpackChunkName: "roleManage" */'../views/system/taskManage.vue')
       }
     ]
   },

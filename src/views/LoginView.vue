@@ -20,7 +20,7 @@
                       </div>
                   </div>
                 </div> -->
-                <h1 class="login-form-title">OMS系统登录</h1>
+                <h1 class="login-form-title">MGMT系统登录</h1>
                 <h3 class="login-form-version" :style="{marginBottom: showLoginRq?'50px':'30px'}">V{{ version }}</h3>
                 <div class="login-form-container" v-if="showLoginRq">
                     <a-form :model="form" @submit-success="handleSubmitSuccess">
@@ -81,13 +81,13 @@
       </div>
     </div>
     <a-modal
-        title="OMS用户服务协议"
+        title="MGMT用户服务协议"
         v-model:visible="modalVisible"
         :footer="null"
         :width="900"
         :modal-style="{height:'600px',overflowY :'scroll'}"
       >
-        <div class="m-b-20">欢迎使用OMS！在使用本OMS前，请仔细阅读以下的《用户服务协议》（以下简称“协议”）。</div>
+        <div class="m-b-20">欢迎使用MGMT！在使用本MGMT前，请仔细阅读以下的《用户服务协议》（以下简称“协议”）。</div>
         <div v-for="(item, i) in modalDt" :key="i" class="m-t-14">
           <div>{{ item.title }}</div>
           <div v-for="(jtem, j) in item.children" :key="i + j">

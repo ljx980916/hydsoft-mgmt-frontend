@@ -19,7 +19,7 @@ export function logout () {
     return request({
         url: userApi.Logout,
         method: 'get',
-        //baseURL: '/oms'
+        //baseURL: '/mgmt'
         // headers: {
         //     'Content-Type': 'application/json;charset=UTF-8'
         // }

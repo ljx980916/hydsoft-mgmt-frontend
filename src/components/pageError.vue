@@ -2,7 +2,7 @@
   <div>
     <div class="img-container">
       <img :src="img">
-      <span>经营管理系统获取用户角色失败，请联系管理员</span>
+      <span>管理驾驶舱获取用户角色失败，请联系管理员</span>
       <a-button type="primary" @click="handleRefresh">刷新</a-button>
     </div>
   </div>
