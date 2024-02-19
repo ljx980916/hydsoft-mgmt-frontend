@@ -46,7 +46,7 @@ module.exports = defineConfig({
     proxy: {
         '/mgmt': {
             target: 'http://10.3.3.160:9006',
-            //target: 'https://mgmt.hydsoft.net:9005/',
+            //target: 'https://mgmt.hydsoft.net:9006/',
             ws: false,
             changeOrigin: true,
             pathRewrite:{
